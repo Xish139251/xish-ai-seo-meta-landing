@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Xish AI SEO Meta Pro — AI 帮你写 SEO 标题与描述</title>
+<meta name="description" content="Xish AI SEO Meta Pro：批量生成、中英多语言、历史文章回填，一键写入 Rank Math / Yoast。WordPress 内容站长的 SEO 效率插件。¥99 买断。" />
+<style>
+  :root{
+    --bg:#0f1220; --panel:#161a2e; --panel-2:#1d2238; --line:#2a3050;
+    --text:#e8ebf5; --muted:#9aa3c0; --brand:#6d8cff; --brand-2:#9b6dff;
+    --accent:#34d6a0; --warn:#ffb454; --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,rgba(109,140,255,.18),transparent 60%),
+               radial-gradient(900px 500px at -10% 10%,rgba(155,109,255,.14),transparent 55%),
+               var(--bg);
+    color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  /* Header */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(15,18,32,.72);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px}
+  .logo .dot{width:12px;height:12px;border-radius:50%;
+    background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 14px rgba(109,140,255,.6)}
+  .nav-links{display:flex;gap:26px;color:var(--muted);font-size:14px}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 20px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;
+    border:1px solid transparent;transition:.18s transform,.18s box-shadow,.18s background}
+  .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;
+    box-shadow:0 8px 24px rgba(109,140,255,.35)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(109,140,255,.5)}
+  .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  /* Hero */
+  .hero{padding:84px 0 56px;text-align:center}
+  .pill{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:999px;
+    font-size:13px;color:var(--muted);margin-bottom:22px}
+  .hero h1{font-size:44px;line-height:1.2;letter-spacing:-.5px;font-weight:800}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.sub{margin:20px auto 0;max-width:680px;color:var(--muted);font-size:18px}
+  .price-row{margin:30px 0 8px;display:flex;align-items:baseline;justify-content:center;gap:10px}
+  .price{font-size:46px;font-weight:800;color:var(--accent)}
+  .price-tag{font-size:15px;color:var(--muted)}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .trust{margin-top:26px;color:var(--muted);font-size:13px}
+  .trust span{margin:0 8px}
+  /* Sections */
+  section{padding:64px 0}
+  .sec-head{text-align:center;margin-bottom:40px}
+  .sec-head h2{font-size:30px;font-weight:800}
+  .sec-head p{color:var(--muted);margin-top:10px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px}
+  .card .ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    background:rgba(109,140,255,.14);font-size:22px;margin-bottom:14px}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14.5px}
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
+  .step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:18px;right:22px;
+    font-size:30px;font-weight:800;color:rgba(109,140,255,.25)}
+  .step h3{font-size:17px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:14.5px}
+  /* Pricing */
+  .pricing{display:flex;justify-content:center}
+  .plan{width:100%;max-width:520px;background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line);border-radius:20px;padding:34px;text-align:center}
+  .plan .big{font-size:52px;font-weight:800;color:var(--accent)}
+  .plan .big small{font-size:18px;color:var(--muted);font-weight:600}
+  .incl{list-style:none;text-align:left;margin:22px auto;max-width:380px}
+  .incl li{padding:9px 0 9px 30px;position:relative;color:var(--text);font-size:15px;border-bottom:1px dashed var(--line)}
+  .incl li:last-child{border-bottom:none}
+  .incl li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  .qa{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+  .qa h4{font-size:16px;margin-bottom:6px}
+  .qa p{color:var(--muted);font-size:14.5px}
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13.5px;text-align:center}
+  footer a{color:var(--brand)}
+  .note{font-size:13px;color:var(--muted);margin-top:14px}
+  @media(max-width:760px){
+    .nav-links{display:none}
+    .hero h1{font-size:32px}
+    .grid,.steps{grid-template-columns:1fr}
+    section{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="dot"></span> Xish AI SEO Meta</div>
+    <nav class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#how">怎么用</a>
+      <a href="#pricing">价格</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="btn btn-primary" href="#pricing">购买 Pro</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="pill">WordPress SEO 效率插件 · 免费版 + Pro</span>
+    <h1>让 AI 替你写 <span class="grad">SEO 标题与描述</span><br/>批量、中英、还能直接写进 Rank Math / Yoast</h1>
+    <p class="sub">装上免费版就能用 AI 单篇生成。升级 Pro 后，批量生成、中英文多语言、历史文章回填、一键同步到主流 SEO 插件——把几小时的重复劳动压到几分钟。</p>
+    <div class="price-row">
+      <span class="price">¥99</span>
+      <span class="price-tag">买断价 · 当前大版本（v1.x）内永久使用并免费更新</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" id="buyBtn" href="#pricing">立即购买 Pro</a>
+      <a class="btn btn-ghost" href="https://github.com/Xish139251/xish-ai-seo-meta" target="_blank" rel="noopener">先装免费版</a>
+    </div>
+    <div class="trust">
+      <span>● 需先安装免费版</span><span>● WordPress 6.4+ / PHP 7.4+</span><span>● 支持 Rank Math、Yoast</span>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Pro 版四件"省时间"的事</h2>
+      <p>免费版已有单篇 AI 生成；下面四项，由 Pro 帮你把规模化的活一并接下。</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="ico">⚡</div>
+        <h3>批量生成</h3>
+        <p>在列表页勾选多篇文章，一次性为它们生成 SEO 标题与描述，不用一篇篇点开。写入免费版同款 meta 字段，前端即刻生效。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🌐</div>
+        <h3>中英多语言</h3>
+        <p>同一篇文章同时产出中文与英文两套 SEO 文案，分别存到独立 meta 字段。面向双语 / 出海站点的内容，一次搞定两种语言的搜索摘要。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🕰️</div>
+        <h3>历史文章回填</h3>
+        <p>站点老文章太多、以前没写 SEO？一键扫描缺少标题/描述的旧文章，批量补齐，把历史欠账一次性还清。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔌</div>
+        <h3>一键写入 Rank Math / Yoast</h3>
+        <p>生成的元数据不只是存着——可直接推送到你正在用的 SEO 插件（Rank Math、Yoast）对应字段，后台所见即所得，免去手动搬运。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>三步用起来</h2>
+      <p>免费版打底，Pro 解锁规模化能力。装上即解锁，无需填授权码；生成文案仍需在设置页配置你自己的 API Key。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>装免费版</h3>
+        <p>从 GitHub 下载免费版（即将上架 WordPress 官方插件库），在后台「插件 → 上传」安装启用，在设置页填入 API 接口地址、模型名与 Key。</p>
+      </div>
+      <div class="step">
+        <h3>装 Pro</h3>
+        <p>付款后下载 Pro 的 zip，后台上传启用即可。当前版本（v1）激活即解锁全部功能，无需填授权码。</p>
+      </div>
+      <div class="step">
+        <h3>开批量 / 多语言</h3>
+        <p>进入文章列表或设置页的 Pro 标签页，勾选文章，选语言，点生成——几秒后 meta 与 SEO 插件同步完成。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>价格</h2>
+      <p>一次买断，当前大版本（v1.x）内永久使用并免费更新。后续版本升级不额外收费，老用户平滑升级。</p>
+    </div>
+    <div class="pricing">
+      <div class="plan">
+        <div class="big">¥99 <small>/ 买断</small></div>
+        <p style="color:var(--muted);margin-top:6px">Xish AI SEO Meta Pro</p>
+        <ul class="incl">
+          <li>批量生成 SEO 标题与描述</li>
+          <li>中英双语文案，独立字段存储</li>
+          <li>历史文章一键回填</li>
+          <li>一键写入 Rank Math / Yoast</li>
+          <li>当前大版本内免费更新</li>
+          <li>需搭配免费版使用</li>
+        </ul>
+        <a class="btn btn-primary" id="buyBtn2" href="#" style="width:100%;padding:14px;font-size:16px">立即购买 ¥99</a>
+        <p class="note">点击购买会跳转到爱发电商品页完成支付；付款成功后，爱发电会自动发送一条含 Pro 安装包下载链接的消息，点开链接即可下载。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>常见问题</h2>
+    </div>
+    <div class="faq">
+      <div class="qa"><h4>是订阅制吗？要不要年费？</h4><p>不是。¥99 为买断价，当前大版本（v1.x）内永久使用并免费更新。未来若推出 v2 重大重构，老用户可平滑升级，不会强制年费。</p></div>
+      <div class="qa"><h4>必须装免费版吗？</h4><p>必须。Pro 是免费版的增强插件，依赖免费版提供的 AI 调用与基础 meta 框架。免费版目前从 GitHub 获取（即将上架 WordPress 官方插件库），完全免费。</p></div>
+      <div class="qa"><h4>支持哪些 SEO 插件？</h4><p>当前支持 Rank Math 与 Yoast SEO，生成结果可一键写入它们的标题/描述字段。未启用对应插件时不会写入，不影响其他功能。</p></div>
+      <div class="qa"><h4>中文站能用吗？</h4><p>能。插件界面与生成文案均支持中文；多语言功能还能同时产出英文版本，适合双语或面向出海的内容站点。</p></div>
+      <div class="qa"><h4>付款后怎么拿到插件？</h4><p>付款成功后，爱发电会自动给你发送一条含 Pro 安装包下载链接的消息，点开链接即可下载。下载后在 WordPress 后台「插件 → 上传」启用即可。若没收到消息，请凭订单号联系我补发。</p></div>
+      <div class="qa"><h4>需要自备 API Key 吗？</h4><p>需要。本插件调用第三方大语言模型（LLM）生成 SEO 文案，接口调用需由各用户自备 API Key，插件不内置、也不代付任何模型费用。支持任意 OpenAI 兼容接口，在设置页填入接口地址、模型名与 Key 即可（如 OpenAI、DeepSeek 等）。Key 仅加密存储在你自己的站点数据库中。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Xish AI SEO Meta 与 Xish AI SEO Meta Pro · 由 Xish 独立开发 · GPL v2 或更高版本</p>
+    <p style="margin-top:8px">免费版：<a href="https://github.com/Xish139251/xish-ai-seo-meta" target="_blank" rel="noopener">GitHub</a> 获取（即将上架 WordPress 官方插件库）</p>
+  </div>
+</footer>
+
+<script>
+  // ===== 收款链接配置（改这一处即可切换付款方式）=====
+  // 推荐：爱发电(afdian) 建一个 ¥99 数字商品，买家付款后由平台自动发送含下载链接的回复消息，点击即可下载 Pro 的 zip。
+  // 也可换成微信小店商品页、或你自建收银台地址。
+  // 临时占位：认证通过拿到爱发电 item 链接后，把下面这行换成 https://afdian.com/item/xxxx
+  var BUY_URL = "https://afdian.com/a/xish1";
+  // ====================================================
+  document.getElementById("buyBtn").href = BUY_URL;
+  document.getElementById("buyBtn2").href = BUY_URL;
+</script>
+
+</body>
+</html>
